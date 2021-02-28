@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3 class="card-label">
+                        Clientes
+                    </h3>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-sm btn-primary mt-4 float-right" routerLink="/create">
+                    Crear Cliente
+                </button>
+            </div>
+ 
+            <div class="card-body">
+                
+                <div class="example animate__animated animate__fadeInUp">
+                    <div class="example-preview">
+                        <table class="table table-responsive">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Edad</th>
+                                    <th scope="col">Estatura</th>
+                                    <th scope="col">Peso</th>
+                                    <th scope="col">IMC</th>
+                                    <th scope="col">GEB</th>
+                                    <th scope="col">ETA</th>
+                                    <th scope="col">Fehca de creacion</th>
+                                    <th>Ver</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let cliente of clientes" >
+                                    <th>{{ cliente.Nombre }}</th>
+                                    <td>{{ cliente.Apellidos }}</td>
+                                    <td>{{ cliente.Nombre_Usuario }}</td>
+                                    <td>{{ cliente.Correo_Electronico }}</td>
+                                    <td>{{ cliente.Edad }}</td>
+                                    <td>{{ cliente.Estatura }}</td>
+                                    <td>{{ cliente.Peso }}</td>
+                                    <td>{{ cliente.IMC }}</td>
+                                    <td>{{ cliente.GEB }}</td>
+                                    <td>{{ cliente.ETA }}</td>
+                                    <td>{{ cliente.Fecha_Creacion }}</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary" [routerLink]="['/update',cliente.Cliente_ID]" >Ver</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

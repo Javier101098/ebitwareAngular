@@ -1,0 +1,168 @@
+
+<div class="row animate__animated animate__fadeInUp " [class.animate__fadeOutUp]="formV" *ngIf="!formV && cliente">
+    <div class="col-md-12">
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3 class="card-label">
+                        Clientes
+                    </h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success animate__animated animate__fadeIn" *ngIf="status == 'success' " role="alert" >
+                    La modificacion se realizo correctamente
+                </div>
+                <div class="text-center mb-10">
+                    <h4 class="font-weight-bold my-2">{{ cliente.Nombre }} {{ cliente.Apellidos }}</h4>
+                    <span class="label label-light-warning label-inline font-weight-bold label-lg">{{ cliente.Nombre_Usuario }}</span>
+                    <div class="text-muted mt-2">
+                        <button class="btn btn-primary btn-sm mr-1" (click)="formV=!formV">
+                            Modificar
+                        </button>
+                        <button class="btn btn-secondary btn-sm" routerLink="/home">
+                            Salir
+                        </button>
+                        
+                    </div>
+                </div>
+                <!--end::User-->
+                <!--begin::Contact-->
+                <div class="mb-10 text-center row">
+                   <div class="col-md-4">
+                       <p>Edad: {{ cliente.Edad }}</p>
+                   </div>
+                    <div class="col-md-4">
+                        <p>Estatura: {{ cliente.Estatura }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Peso: {{ cliente.Peso }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>IMC: {{ cliente.IMC }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>GEB: {{ cliente.GEB }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>ETA: {{ cliente.ETA }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animate__animated animate__fadeInUp animate__fadeOutUp" [class.animate__fadeOutUp]="!formV"  *ngIf="formV">
+    <div class="col-md-12">
+        <div class="card card-custom">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3 class="card-label">
+                        Registro de un nuevo cliente
+                    </h3>
+                </div>
+            </div>
+            <div class="card-body ">
+                <div class="alert alert-danger animate__animated animate__fadeIn" *ngIf="status == 'error' " role="alert" >{{ message }}</div>
+                <form class="row"   #formCliente="ngForm" (ngSubmit)="updateClient(formCliente)">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            <input type="text" class="form-control form-control-solid" placeholder="Nombre"
+                            [(ngModel)]="cliente.Nombre" name="nombre" required
+                            >
+                            <span class="form-text text-muted">Please enter your full name</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Apellidos:</label>
+                            <input type="text" class="form-control form-control-solid" placeholder="Apellidos"
+                            [(ngModel)]="cliente.Apellidos" name="apellidos" required
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Nombre Usuario:</label>
+                            <input type="text" class="form-control form-control-solid" placeholder="Nombre Usuario"
+                            [(ngModel)]="cliente.Nombre_Usuario" name="usuario" required
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Correo Electronico:</label>
+                            <input type="email" class="form-control form-control-solid"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Correo Electronico"
+                            [(ngModel)]="cliente.Correo_Electronico" name="correo" required
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Contraseña:</label>
+                            <input type="text" class="form-control form-control-solid" placeholder="Contraseña"
+                           
+                            [(ngModel)]="cliente.Contrasena" name="contrasena" required
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Edad:</label>
+                            <input type="number" class="form-control form-control-solid" placeholder="Edad"
+                            [(ngModel)]="cliente.Edad" name="edad" required
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Estatura:</label>
+                            <input type="number" step="any" class="form-control form-control-solid" placeholder="Estatura"
+                            [(ngModel)]="cliente.Estatura" name="estatura" required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Peso:</label>
+                            <input type="number" step="any" class="form-control form-control-solid" placeholder="Peso"
+                            [(ngModel)]="cliente.Peso" name="peso" required
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>GEB:</label>
+                            <input type="number" step="any" class="form-control form-control-solid" placeholder="GEB"
+                            [(ngModel)]="cliente.GEB" name="geb" required
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>ETA:</label>
+                            <input type="number" step="any" class="form-control form-control-solid" placeholder="ETA"
+                            [(ngModel)]="cliente.ETA" name="eta" required
+                            >
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-primary mr-2" [disabled]="formCliente.invalid">Modificar Cliente</button>
+                            <a class="btn btn-secondary"  (click)="formV=!formV">Cancelar Modificacion</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="alert alert-danger animate__animated animate__fadeIn" *ngIf="!cliente" role="alert" >
+    El cliente no existe
+</div>
