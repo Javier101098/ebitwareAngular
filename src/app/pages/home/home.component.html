@@ -47,7 +47,7 @@
                                     <td>{{ cliente.IMC }}</td>
                                     <td>{{ cliente.GEB }}</td>
                                     <td>{{ cliente.ETA }}</td>
-                                    <td>{{ cliente.Fecha_Creacion }}</td>
+                                    <td>{{ cliente.Fecha_Creacion | date: 'dd/MM/yyyy' }}</td>
                                     <td>
                                         <button class="btn btn-sm btn-primary" [routerLink]="['/update',cliente.Cliente_ID]" >Ver</button>
                                     </td>
